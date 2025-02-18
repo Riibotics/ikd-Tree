@@ -6,6 +6,11 @@ Author: Yixi Cai
 email: yixicai@connect.hku.hk
 */
 
+namespace ikdtree {
+
+// TODO (JinyongJeong) Remove using namespace
+using namespace std;
+
 template <typename PointType>
 KD_TREE<PointType>::KD_TREE(float delete_param, float balance_param, float box_length) {
   delete_criterion_param = delete_param;
@@ -1416,11 +1421,8 @@ bool KD_TREE<PointType>::point_cmp_z(PointType a, PointType b) {
   return a.z < b.z;
 }
 
-// Manual heap
-
-// manual queue
-
-// Manual Instatiations
 template class KD_TREE<pcl::PointXYZ>;
 template class KD_TREE<pcl::PointXYZI>;
 template class KD_TREE<pcl::PointXYZINormal>;
+
+}  // namespace ikdtree
