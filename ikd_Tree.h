@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <algorithm>
 #include <chrono>
+#include <cmath>
 #include <queue>
 
 #define EPSS 1e-6
@@ -17,10 +18,10 @@
 #define ForceRebuildPercentage 0.2
 #define Q_LEN 1000000
 
-using namespace std;
+namespace ikdtree {
 
-// typedef pcl::PointXYZINormal PointType;
-// typedef vector<PointType, Eigen::aligned_allocator<PointType>>  PointVector;
+// TODO (JinyongJeong) Remove using namespace
+using namespace std;
 
 struct BoxPointType {
   float vertex_min[3];
@@ -33,10 +34,6 @@ enum delete_point_storage_set { NOT_RECORD, DELETE_POINTS_REC, MULTI_THREAD_REC 
 
 template <typename PointType>
 class KD_TREE {
-  // using MANUAL_Q_ = MANUAL_Q<typename PointType>;
-  // using PointVector = std::vector<PointType>;
-
-  // using MANUAL_Q_ = MANUAL_Q<typename PointType>;
  public:
   using PointVector = std::vector<PointType, Eigen::aligned_allocator<PointType>>;
   using Ptr = std::shared_ptr<KD_TREE<PointType>>;
@@ -269,5 +266,4 @@ class KD_TREE {
   int max_queue_size = 0;
 };
 
-// template <typename PointType>
-// PointType KD_TREE<PointType>::zeroP = PointType(0,0,0);
+}  // namespace ikdtree
