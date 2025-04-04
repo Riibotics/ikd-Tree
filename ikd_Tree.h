@@ -239,7 +239,7 @@ class KD_TREE {
   static bool point_cmp_y(PointType a, PointType b);
   static bool point_cmp_z(PointType a, PointType b);
 
-  public:
+ public:
   KD_TREE(float delete_param = 0.5, float balance_param = 0.6, float box_length = 0.2);
   ~KD_TREE();
   void Set_delete_criterion_param(float delete_param) { delete_criterion_param = delete_param; }
