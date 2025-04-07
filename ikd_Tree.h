@@ -254,12 +254,12 @@ class KD_TREE {
                       float max_dist = INFINITY);
   void Box_Search(const BoxPointType &Box_of_Point, PointVector &Storage);
   void Radius_Search(PointType point, const float radius, PointVector &Storage);
-  int Add_Points(PointVector &PointToAdd, bool downsample_on);
+  virtual int Add_Points(PointVector &PointToAdd, bool downsample_on);
   void Add_Point_Boxes(vector<BoxPointType> &BoxPoints);
   void Delete_Points(PointVector &PointToDel);
-  int Delete_Point_Boxes(vector<BoxPointType> &BoxPoints);
+  virtual int Delete_Point_Boxes(vector<BoxPointType> &BoxPoints);
   void flatten(KD_TREE_NODE *root, PointVector &Storage, delete_point_storage_set storage_type);
-  void acquire_removed_points(PointVector &removed_points);
+  virtual void acquire_removed_points(PointVector &removed_points);
   BoxPointType tree_range();
   PointVector PCL_Storage;
   KD_TREE_NODE *Root_Node = nullptr;
