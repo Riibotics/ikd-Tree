@@ -244,12 +244,12 @@ class KD_TREE {
   ~KD_TREE();
   void Set_delete_criterion_param(float delete_param) { delete_criterion_param = delete_param; }
   void Set_balance_criterion_param(float balance_param) { balance_criterion_param = balance_param; }
-  void set_downsample_param(float downsample_param) { downsample_size = downsample_param; }
+  virtual void set_downsample_param(float downsample_param) { downsample_size = downsample_param; }
   void InitializeKDTree(float delete_param = 0.5, float balance_param = 0.7, float box_length = 0.2);
   int size();
   int validnum();
   void root_alpha(float &alpha_bal, float &alpha_del);
-  void Build(PointVector point_cloud);
+  virtual void Build(PointVector point_cloud);
   void Nearest_Search(PointType point, int k_nearest, PointVector &Nearest_Points, vector<float> &Point_Distance,
                       float max_dist = INFINITY);
   void Box_Search(const BoxPointType &Box_of_Point, PointVector &Storage);
