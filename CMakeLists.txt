@@ -10,7 +10,7 @@ set(DEPENDENCIES
 add_library(ikd-Tree STATIC ikd_Tree.cpp)
 
 # Include directories for third-party headers
-target_include_directories(ikd-Tree PRIVATE
+target_include_directories(ikd-Tree PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
     $<INSTALL_INTERFACE:include>
     ${PCL_INCLUDE_DIRS}
