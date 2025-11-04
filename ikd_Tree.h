@@ -241,7 +241,7 @@ class KD_TREE {
 
  public:
   KD_TREE(float delete_param = 0.5, float balance_param = 0.6, float box_length = 0.2);
-  ~KD_TREE();
+  virtual ~KD_TREE();
   void Set_delete_criterion_param(float delete_param) { delete_criterion_param = delete_param; }
   void Set_balance_criterion_param(float balance_param) { balance_criterion_param = balance_param; }
   virtual void set_downsample_param(float downsample_param) { downsample_size = downsample_param; }
