@@ -8,10 +8,10 @@ on:
 jobs:
   build-and-test:
     name: build & test (${{ matrix.sanitizer }})
-    # Run directly on the host runner (Ubuntu 24.04 -> PCL 1.14), NOT in a container, so the
+    # Run directly on the self-hosted runner, NOT in a container, so the
     # ThreadSanitizer ASLR workaround (sysctl / setarch -R) works without privileged
     # containers. The source is ROS-independent; only PCL + Eigen are needed.
-    runs-on: ubuntu-24.04
+    runs-on: [self-hosted, Linux, x64]
     strategy:
       fail-fast: false
       matrix:
